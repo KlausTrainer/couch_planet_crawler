@@ -1,0 +1,22 @@
+{application, couch_planet,
+ [{description, "couch_planet"},
+  {vsn, "1.2.0"},
+  {modules, [
+    couch_planet,
+    couch_planet_app,
+    couch_planet_atom_parser,
+    couch_planet_crawler,
+    couch_planet_deps,
+    couch_planet_file_fetcher,
+    couch_planet_parser,
+    couch_planet_rss_parser,
+    couch_planet_subscriptions_manager,
+    couch_planet_sup,
+    couch_planet_utils,
+    mochijson2,
+    mochinum
+  ]},
+  {registered, [couch_planet_sup]},
+  {mod, {couch_planet_app, []}},
+  {applications, [kernel, stdlib]}
+ ]}.

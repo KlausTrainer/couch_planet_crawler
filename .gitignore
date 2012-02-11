@@ -1,6 +1,6 @@
 plt
 *.beam
-apps/crawler/deps
-apps/crawler/doc/*
-apps/crawler/ebin/*
-apps/crawler/log/sasl/*
+deps/
+doc/
+ebin/
+log/sasl/

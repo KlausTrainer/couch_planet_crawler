@@ -222,7 +222,7 @@ process_img_tags(EntryId, Data, {SummaryAcc, Urls}) ->
         <<Prefix:StartOffs/binary,Url:Length/binary,Rest/binary>> = Data,
         DocName = ?l2b(edoc_lib:escape_uri(?b2l(EntryId))),
         UrlHash = ?l2b(?i2l(erlang:phash2(Url))),
-        NewUrl = <<"../../../../",DocName/binary,"/",UrlHash/binary>>,
+        NewUrl = <<"feed_images/",DocName/binary,"/",UrlHash/binary>>,
         process_img_tags(EntryId, Rest, {<<SummaryAcc/binary,Prefix/binary,NewUrl/binary>>, [Url|Urls]})
     end.
 
@@ -244,5 +244,5 @@ process_enclosure(EntryId, Object) ->
     DocName = ?l2b(edoc_lib:escape_uri(?b2l(EntryId))),
     Link = Object#object.link,
     UrlHash = ?l2b(?i2l(erlang:phash2(Link))),
-    NewUrl = <<"../../../../",DocName/binary,"/",UrlHash/binary>>,
+    NewUrl = <<"feed_enclosures/",DocName/binary,"/",UrlHash/binary>>,
     {Object#object{link = NewUrl}, Link}.

@@ -43,11 +43,15 @@ done
 DB_URL=${!i}
 
 if [ -z $INTERACTIVE ]; then
-	DETACHED="-detached"
+	DETACHED="-heart -detached"
 fi
 
 if [ -z $SASL_CONFIG ]; then
 	SASL_CONFIG="config/elog.config"
 fi
 
-exec erl $DETACHED -pa $PWD/deps/*/ebin -pa $PWD/ebin -boot start_sasl -config ${SASL_CONFIG} -run couch_planet start $FETCH_IMAGES $FETCH_AUDIO $DB_URL
+COMMAND="erl $DETACHED -pa $PWD/deps/*/ebin -pa $PWD/ebin -boot start_sasl -config ${SASL_CONFIG} -run couch_planet start $FETCH_IMAGES $FETCH_AUDIO $DB_URL"
+
+export HEART_COMMAND="$COMMAND"
+
+exec $COMMAND

@@ -3,4 +3,4 @@ plt
 deps/
 doc/
 ebin/
-log/sasl/
+log/

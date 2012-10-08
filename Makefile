@@ -1,8 +1,5 @@
-all: log_dir
+all:
 	rebar get-deps compile
 
 clean:
-	rm -rf ebin doc log erl_crash.dump
-
-log_dir:
-	@mkdir -p log
+	rm -rf ebin doc erl_crash.dump

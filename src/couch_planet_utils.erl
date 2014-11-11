@@ -32,7 +32,7 @@ get_http_header_value0(Key, [_|T]) ->
 absolute_url_from_url_and_location(Url, Location) ->
     case re:run(Location, "^https?://", [{capture, none}]) of
     match -> Location;
-    nomatch -> re:replace(Url, "^(https?://[^/]+)", "\\1", [{return, list}]) ++ Location
+    nomatch -> re:replace(Url, "^(https?://[^/]+).*", "\\1", [{return, list}]) ++ Location
     end.
 
 %% @spec xml2xml_text2json_string(binary()) -> binary()
